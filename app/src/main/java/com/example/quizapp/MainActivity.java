@@ -258,6 +258,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 isAvailable = false;
                 openedK = userAnswer.hasFocus();
+
                 hideKeyboard();
                 if (!"".equals(String.valueOf(userAnswer.getText()))) {
                     if (answer.equalsIgnoreCase(String.valueOf(userAnswer.getText()))) {
