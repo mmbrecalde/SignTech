@@ -25,6 +25,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -86,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
     static int convertLetter;
     boolean isAvailable;
 
+    //Animations
+    RotateAnimation rotateAnimSettings;
+    RotateAnimation rotateAnimBtns;
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,13 +121,13 @@ public class MainActivity extends AppCompatActivity {
         next.animate().alpha(0f).setDuration(0);
         endQ.animate().alpha(0f).setDuration(0);
 
-        RotateAnimation rotateAnimSettings = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        rotateAnimSettings = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         rotateAnimSettings.setDuration(3500);
         rotateAnimSettings.setRepeatCount(Animation.INFINITE);
 
         settings.startAnimation(rotateAnimSettings);
 
-        RotateAnimation rotateAnimBtns = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        rotateAnimBtns = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         rotateAnimBtns.setDuration(1500);
 
         rotateAnimBtns.setAnimationListener(new Animation.AnimationListener() {
@@ -304,8 +309,7 @@ public class MainActivity extends AppCompatActivity {
                                 correctSound.start();
                             }
                         }
-                        currentScore = Integer.parseInt(userScore.getText().toString()) + 1;
-                        userScore.setText(String.valueOf(currentScore));
+                        delayFunction("correct");
                     } else {
                         mDatabase.child("Questions").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                             @Override
@@ -347,22 +351,8 @@ public class MainActivity extends AppCompatActivity {
                                 wrongSound.start();
                             }
                         }
-                        currentLives = Integer.parseInt(userLives.getText().toString()) - 1;
-                        userLives.setText(String.valueOf(currentLives));
+                        delayFunction("wrong");
                     }
-                    next.setEnabled(false);
-                    endQ.setEnabled(false);
-                    userAnswer.setEnabled(false);
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            userAnswer.setText("");
-                            userAnswer.setEnabled(true);
-                            next.setEnabled(true);
-                            endQ.setEnabled(true);
-                            changeQuestion();
-                        }
-                    }, 500);
                 }
             }
 
@@ -372,6 +362,7 @@ public class MainActivity extends AppCompatActivity {
         timer = findViewById(R.id.stopWatch);
         start = findViewById(R.id.startBtn);
 
+        //Buttons function
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -398,6 +389,7 @@ public class MainActivity extends AppCompatActivity {
         endQ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                getScoreAndTime();
 
                 start.animate().alpha(1f).setDuration(1500);
                 endQ.animate().alpha(0f).setDuration(1500);
@@ -443,6 +435,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Other Functions
+    public void delayFunction(String checkAnswer) {
+        next.setEnabled(false);
+        endQ.setEnabled(false);
+        userAnswer.setEnabled(false);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                userAnswer.setText("");
+                userAnswer.setEnabled(true);
+                next.setEnabled(true);
+                endQ.setEnabled(true);
+                if (checkAnswer.equalsIgnoreCase("correct")) {
+                    currentScore = Integer.parseInt(userScore.getText().toString()) + 1;
+                    userScore.setText(String.valueOf(currentScore));
+                } else {
+                    currentLives = Integer.parseInt(userLives.getText().toString()) - 1;
+                    userLives.setText(String.valueOf(currentLives));
+                }
+
+                changeQuestion();
+            }
+        }, 500);
+    }
+
     public void playMusic() {
         backgroundMusic.setLooping(true);
         backgroundMusic.start();
@@ -507,19 +523,34 @@ public class MainActivity extends AppCompatActivity {
                     + String.format("%02d", Seconds));
 
             handler.postDelayed(this, 0);
-
-            if (currentLives == 0) {
-                ResetEverything();
-            }
         }
 
     };
 
     //Questions Function
+    public void getScoreAndTime() {
+        Toast.makeText(this, "GAME ENDED!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Your Score: " + userScore.getText() + " | Playtime:" + timer.getText(), Toast.LENGTH_LONG).show();
+    }
+
     public void changeQuestion() {
         arrayNo = new Random().nextInt(questions.length);
         question.setImageDrawable(getResources().getDrawable(images[arrayNo]));
         answer = questions[arrayNo];
+
+        if (currentLives == 0) {
+            getScoreAndTime();
+
+            start.animate().alpha(1f).setDuration(1500);
+            endQ.animate().alpha(0f).setDuration(1500);
+            next.animate().alpha(0f).setDuration(1500);
+
+            start.startAnimation(rotateAnimBtns);
+            next.startAnimation(rotateAnimBtns);
+            endQ.startAnimation(rotateAnimBtns);
+
+            ResetEverything();
+        }
     }
 
 }
