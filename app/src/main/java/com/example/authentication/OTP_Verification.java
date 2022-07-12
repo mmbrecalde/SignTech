@@ -75,6 +75,9 @@ public class OTP_Verification extends AppCompatActivity {
         btnVerify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                progressBarVerify.setVisibility(View.VISIBLE);
+                btnVerify.setVisibility(View.INVISIBLE);
                 verify();
             }
         });
