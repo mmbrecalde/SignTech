@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -67,7 +68,30 @@ public class OTP_Verification extends AppCompatActivity {
         tvResendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Resend();
+                PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                        "+63" + getIntent().getStringExtra("phone"),
+                        60l,
+                        TimeUnit.SECONDS,
+                        OTP_Verification.this,
+                        new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                            @Override
+                            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+
+                            }
+
+                            @Override
+                            public void onVerificationFailed(@NonNull FirebaseException e) {
+
+                            }
+                            @Override
+                            public void onCodeSent(@NonNull String newverificationId,
+                                                   @NonNull PhoneAuthProvider.ForceResendingToken token) {
+                                    verificationId = newverificationId;
+                                    Toast.makeText(OTP_Verification.this,"OTP send", Toast.LENGTH_LONG).show();
+
+                            }
+                        }
+                );
 
             }
         });
@@ -83,39 +107,8 @@ public class OTP_Verification extends AppCompatActivity {
         });
 
     }
-    public void Resend() {
-        String phone = getIntent().getStringExtra("phone");
 
 
-        PhoneAuthOptions options =
-                PhoneAuthOptions.newBuilder(mAuth)
-                        .setPhoneNumber("+63" + phone)
-                        .setTimeout(60l, TimeUnit.SECONDS)
-                        .setActivity(this)
-                        .setCallbacks(mCallbacks)
-                        .build();
-        PhoneAuthProvider.verifyPhoneNumber(options);
-
-        mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-            @Override
-            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                mAuth.signInWithCredential(phoneAuthCredential);
-            }
-
-            @Override
-            public void onVerificationFailed(@NonNull FirebaseException e) {
-                Toast.makeText(OTP_Verification.this,e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onCodeSent(@NonNull String newverificationId,
-                                   @NonNull PhoneAuthProvider.ForceResendingToken token) {
-                verificationId = newverificationId;
-                Toast.makeText(OTP_Verification.this,"OTP is successfully send", Toast.LENGTH_LONG).show();
-
-            }
-        };
-    }
 
 
     public void verify() {
