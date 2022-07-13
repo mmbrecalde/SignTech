@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "185053204459",
+    "firebase_url": "https://signtech-3e2dd-default-rtdb.firebaseio.com",
+    "project_id": "signtech-3e2dd",
+    "storage_bucket": "signtech-3e2dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185053204459:android:02f52f724a48e2118c93ae",
+        "android_client_info": {
+          "package_name": "com.example.signtech_draft"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "185053204459-0fq2ml3korgubs7i7ch474rbvj7rulpb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZ4TEE_QVRmXfp3bWn9-Bk-jrHEHOQLhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "185053204459-0fq2ml3korgubs7i7ch474rbvj7rulpb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
