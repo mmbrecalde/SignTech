@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "83336903570",
+    "firebase_url": "https://synapse-ce3d3-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "synapse-ce3d3",
+    "storage_bucket": "synapse-ce3d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:83336903570:android:78c49d65fe78c4d829df4b",
+        "android_client_info": {
+          "package_name": "com.example.analytics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "83336903570-0vtjkug16pn5rup1uatukpn99ou8b8cl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAieNGIZFArNa3To3qphdcq-IoTIj_YW3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "83336903570-0vtjkug16pn5rup1uatukpn99ou8b8cl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:83336903570:android:f577b4fc0d0d5aaf29df4b",
+        "android_client_info": {
+          "package_name": "com.example.quizapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "83336903570-0vtjkug16pn5rup1uatukpn99ou8b8cl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAieNGIZFArNa3To3qphdcq-IoTIj_YW3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "83336903570-0vtjkug16pn5rup1uatukpn99ou8b8cl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
