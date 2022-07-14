@@ -69,6 +69,8 @@ public class Number_verification extends AppCompatActivity {
 
             @Override
             public void onVerificationFailed(@NonNull FirebaseException e) {
+                progressBarSend.setVisibility(View.INVISIBLE);
+                btnSend.setVisibility(View.VISIBLE);
                 Toast.makeText(Number_verification.this,e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
             }
 

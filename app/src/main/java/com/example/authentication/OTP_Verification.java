@@ -141,6 +141,8 @@ public class OTP_Verification extends AppCompatActivity {
                             finish();
                         }
                         else {
+                            progressBarVerify.setVisibility(View.INVISIBLE);
+                            btnVerify.setVisibility(View.VISIBLE);
                             Toast.makeText(OTP_Verification.this,"Invalid OTP", Toast.LENGTH_LONG).show();
                         }
 
