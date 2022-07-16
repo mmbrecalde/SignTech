@@ -12,10 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Authentication">
-        <activity android:name=".Profile"></activity>
-        <activity android:name=".Number_verification" />
-        <activity android:name=".Home"
-            android:exported="true"/>
+        <activity android:name=".ForgotPassword"></activity>
+        <activity android:name=".Profile" />
+        <activity
+            android:name=".Home"
+            android:exported="true" />
         <activity android:name=".OTP_Verification" />
         <activity android:name=".Login" />
         <activity android:name=".Register" />

@@ -3,6 +3,9 @@ package com.example.authentication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +35,8 @@ public class Home extends AppCompatActivity {
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,19 +56,19 @@ public class Home extends AppCompatActivity {
         reference.child(userID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                user = FirebaseAuth.getInstance().getCurrentUser();
                 User userWelcome = snapshot.getValue(User.class);
 
-                if (userWelcome != null) {
+
+                if ((userWelcome != null) &&(user != null)) {
                     String name = userWelcome.name;
-                    String email = userWelcome.email;
-                    String phone = userWelcome.phone;
+
 
                     tvWelcome.setText("Welcome," + name + "!");
-                    tvEmail.setText(email);
-                    tvPhone.setText(phone);
+
+
 
                 }
-
             }
 
             @Override
@@ -71,24 +76,18 @@ public class Home extends AppCompatActivity {
                 Toast.makeText(Home.this,"Something went wrong", Toast.LENGTH_LONG).show();
             }
         });
-        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(Home.this,Profile.class);
+                startActivity(intent);
+                finish();
 
             }
         });
     }
+
+
 }

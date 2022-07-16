@@ -61,7 +61,7 @@ public class OTP_Verification extends AppCompatActivity {
 
         verificationId = getIntent().getStringExtra("verificationId");
         mAuth = FirebaseAuth.getInstance();
-
+            User user = new User();
         tvMobile.setText(String.format("+63-%s", getIntent().getStringExtra("phone")));
 
         editTextInput();
@@ -135,7 +135,7 @@ public class OTP_Verification extends AppCompatActivity {
                             progressBarVerify.setVisibility(View.VISIBLE);
                             btnVerify.setVisibility(View.INVISIBLE);
                             Toast.makeText(OTP_Verification.this,"phone number verified",Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(OTP_Verification.this,Home.class);
+                            Intent intent = new Intent(OTP_Verification.this,Login.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
                             finish();
