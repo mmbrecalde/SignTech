@@ -10,6 +10,9 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
+import android.view.animation.Transformation;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -45,15 +48,6 @@ public class HomeFragment extends Fragment {
             "5", "6", "7", "8", "9",
             "10", "and"};
 
-    int[] images = new int[]{R.drawable.a, R.drawable.b, R.drawable.c, R.drawable.d,
-            R.drawable.e, R.drawable.f, R.drawable.g, R.drawable.h, R.drawable.i,
-            R.drawable.j, R.drawable.k, R.drawable.l, R.drawable.m, R.drawable.n,
-            R.drawable.o, R.drawable.p, R.drawable.q, R.drawable.r, R.drawable.s,
-            R.drawable.t, R.drawable.u, R.drawable.v, R.drawable.w, R.drawable.x,
-            R.drawable.y, R.drawable.z, R.drawable.one, R.drawable.two, R.drawable.three,
-            R.drawable.four, R.drawable.five, R.drawable.six, R.drawable.seven, R.drawable.eight,
-            R.drawable.nine, R.drawable.ten, R.drawable.and};
-
     int[] progressBars = new int[]{
             R.id.progress1, R.id.progress2, R.id.progress3, R.id.progress4, R.id.progress5,
             R.id.progress6, R.id.progress7, R.id.progress8, R.id.progress9, R.id.progress10,
@@ -80,15 +74,25 @@ public class HomeFragment extends Fragment {
     final Handler handler = new Handler();
 
     int i;
-
+    double sum, prog;
     //Binding
     private FragmentHomeBinding binding;
+
+    //Progress
+    ProgressBarAnimation anim;
+
+    //Learning Progress
+    ProgressBar learnProgress;
+    int masteredLetters = 0;
+    double averageMastered;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        learnProgress = root.findViewById(R.id.learningProg);
 
         handler.postDelayed(new Runnable() {
             @Override
@@ -103,6 +107,8 @@ public class HomeFragment extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         if (activityVisible) {
+
+                            masteredLetters = 0;
 
                             for (i = 0; i <= 36 ; i++) {
                                 TextView textQ = root.findViewById(textLetters[i]);
@@ -131,10 +137,15 @@ public class HomeFragment extends Fragment {
                                             }
                                         }
 
-                                        double sum = totalCorrect + totalWrong;
-                                        double prog = totalCorrect / sum * 100.0;
+                                        sum = totalCorrect + totalWrong;
+                                        prog = totalCorrect / sum * 100.0;
                                         ProgressBar progressQ = root.findViewById(progressBars[i]);
-                                        progressQ.setProgress((int) prog);
+                                        anim = new ProgressBarAnimation(progressQ, 0, (int) prog);
+                                        anim.setDuration(2000);
+                                        progressQ.startAnimation(anim);
+                                        if ((int) prog >= 70) {
+                                            masteredLetters++;
+                                        }
                                     }
                                 }
                             }
@@ -146,6 +157,11 @@ public class HomeFragment extends Fragment {
                                     ((View) textQ.getParent()).setVisibility(View.GONE);
                                 }
                             }
+
+                            averageMastered = masteredLetters / Double.parseDouble(String.valueOf(questions.length)) * 100.0 ;
+                            anim = new ProgressBarAnimation(learnProgress, 0, (int) averageMastered);
+                            anim.setDuration(1000);
+                            learnProgress.startAnimation(anim);
                         }
 
                     }
@@ -157,9 +173,30 @@ public class HomeFragment extends Fragment {
                 });
 
             }
-        }, 2000);
+        }, 500);
 
         return root;
+    }
+
+    public class ProgressBarAnimation extends Animation{
+        private ProgressBar progressBar;
+        private float from;
+        private float  to;
+
+        public ProgressBarAnimation(ProgressBar progressBar, float from, float to) {
+            super();
+            this.progressBar = progressBar;
+            this.from = from;
+            this.to = to;
+        }
+
+        @Override
+        protected void applyTransformation(float interpolatedTime, Transformation t) {
+            super.applyTransformation(interpolatedTime, t);
+            float value = from + (to - from) * interpolatedTime;
+            progressBar.setProgress((int) value);
+        }
+
     }
 
     @Override
