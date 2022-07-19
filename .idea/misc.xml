@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/drawable/custom_input.xml" value="0.2985" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/activity_main_home.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/activity_profile.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/activity_register.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/app_bar_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/fragment_home.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/fragment_learn.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/fragment_sign.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/nav_header_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/menu/activity_main_drawer.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/menu/main.xml" value="0.18802083333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

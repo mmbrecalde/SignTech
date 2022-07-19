@@ -1,0 +1,1644 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#277325"
+    tools:context=".ui.home.HomeFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#CCCCFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textViewStats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Learn Stats"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.047"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewStats2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Learning Progress"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#A34D4D"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewStats"
+                app:layout_constraintVertical_bias="0.0">
+
+                <LinearLayout
+                    android:id="@+id/progressList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#CCCCFF"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/indicatorConstraint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/prog100"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:text="100"
+                            android:textAlignment="center"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/prog75"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="18dp"
+                            android:text="75"
+                            android:textAlignment="center"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/prog100" />
+
+                        <TextView
+                            android:id="@+id/prog50"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="19dp"
+                            android:text="50"
+                            android:textAlignment="center"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/prog75" />
+
+                        <TextView
+                            android:id="@+id/prog25"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="19dp"
+                            android:text="25"
+                            android:textAlignment="center"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/prog50" />
+
+                        <TextView
+                            android:id="@+id/prog0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="19dp"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/prog25" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter1"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="7sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress1"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress1"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter2"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress2"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress2"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter3"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress3"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress3"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter4"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress4"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress4"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter5"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress5"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress5"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter6"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress6"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress6"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter7"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress7"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress7"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter8"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress8"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress8"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter9"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress9"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress9"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter10"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress10"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress10"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter11"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress11"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress11"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter12"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress12"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress12"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter13"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress13"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress13"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter14"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress14"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress14"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter15"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress15"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress15"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter16"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress16"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress16"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter17"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress17"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress17"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter18"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress18"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress18"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter19"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress19"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress19"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter20"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress20"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress20"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter21"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress21"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress21"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter22"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress22"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress22"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter23"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress23"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress23"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter24"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress24"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress24"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter25"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress25"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress25"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter26"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress26"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress26"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter27"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress27"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress27"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter28"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress28"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress28"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter29"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress29"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress29"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter30"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress30"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress30"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter31"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress31"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress31"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter32"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress32"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress32"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter33"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress33"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress33"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter34"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress34"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress34"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter35"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress35"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress35"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter36"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress36"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress36"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent">
+
+                        <TextView
+                            android:id="@+id/textLetter37"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="10sp"
+                            app:autoSizeMinTextSize="10sp"
+                            app:autoSizeStepGranularity="2sp"
+                            app:autoSizeTextType="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.466"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progress37"
+                            app:layout_constraintVertical_bias="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progress37"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="10dp"
+                            android:layout_height="130dp"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/progbary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.34" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <ProgressBar
+                android:id="@+id/learningProg"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/circle_shape"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="50"
+                android:progressDrawable="@drawable/progbarcircular"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewStats2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

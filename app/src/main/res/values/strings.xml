@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">SignTech</string>
+
+    <string name="verification_text">
+        We will send you a one time password on this mobile number
+    </string>
+
+    <string name="verification_text1">
+        please enter OTP
+    </string>
+
+    <string name="resend">
+        Unable to send OTP?
+    </string>
+
+    <string name="resend1">
+        Resend OTP
+    </string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">SignTech</string>
+    <string name="nav_header_subtitle">Sign Language Translator</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_learn">Learn</string>
+    <string name="menu_sign">Sign</string>
+    <string name="menu_profile">Profile</string>
+</resources>
