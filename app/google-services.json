@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "473698348793",
+    "project_id": "signtechapp",
+    "storage_bucket": "signtechapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473698348793:android:76a0bd6c633b507f0dbc28",
+        "android_client_info": {
+          "package_name": "com.example.signtech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "473698348793-qrb9kmj1uprgi4a7d4dnvl1uu33aqh04.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdP5t9bx4B2jbjnWCFRnVFPzeEY9Jt-Jw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "473698348793-qrb9kmj1uprgi4a7d4dnvl1uu33aqh04.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
