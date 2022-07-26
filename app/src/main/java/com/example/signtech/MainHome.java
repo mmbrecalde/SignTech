@@ -1,9 +1,12 @@
 package com.example.signtech;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -31,10 +34,40 @@ public class MainHome extends AppCompatActivity {
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-                Intent quiz = new Intent(getApplicationContext(), Quiz.class);
-                startActivity(quiz);
+                Dialog dialog = new Dialog(MainHome.this, R.style.DialogStyle);
+                dialog.setContentView(R.layout.difficulty_dialog);
+
+                Button btnBeg = dialog.findViewById(R.id.btnBeg);
+                Button btnInter = dialog.findViewById(R.id.btnInter);
+                Button btnAdv = dialog.findViewById(R.id.btnAdv);
+                dialog.show();
+
+                btnBeg.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Quiz.mode = "Beginner";
+
+                        Intent quiz = new Intent(getApplicationContext(), Quiz.class);
+                        startActivity(quiz);
+                    }
+                });
+
+                btnInter.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Quiz.mode = "Intermediate";
+
+                        Intent quiz = new Intent(getApplicationContext(), Quiz.class);
+                        startActivity(quiz);
+                    }
+                });
+
+                btnAdv.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(MainHome.this, "Coming Soon!", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
         DrawerLayout drawer = binding.drawerLayout;

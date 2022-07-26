@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.signtech">
+    <!-- For using the camera -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" /> <!-- For MediaPipe -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +23,8 @@
         <activity android:name=".Home" />
         <activity android:name=".ForgotPassword" />
         <activity android:name=".MainHome" />
-        <activity android:name=".Quiz"/>
+        <activity android:name=".Quiz" />
+        <activity android:name=".ui.sign.SignActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -25,6 +34,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="cameraFacingFront"
+            android:value="true" />
+        <meta-data
+            android:name="binaryGraphName"
+            android:value="multi_hand_tracking_mobile_gpu.binarypb" />
+        <meta-data
+            android:name="inputVideoStreamName"
+            android:value="input_video" />
+        <meta-data
+            android:name="outputVideoStreamName"
+            android:value="output_video" />
+        <meta-data
+            android:name="flipFramesVertically"
+            android:value="true" />
     </application>
 
 </manifest>

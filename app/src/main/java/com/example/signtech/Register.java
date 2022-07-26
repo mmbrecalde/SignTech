@@ -65,7 +65,7 @@ public class Register extends AppCompatActivity {
         tvLoginHere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Register.this,Login.class);
+                Intent intent = new Intent(Register.this, Login.class);
                 startActivity(intent);
                 finish();
             }
@@ -82,7 +82,7 @@ public class Register extends AppCompatActivity {
         String pass = etRegisterPass.getText().toString().trim();
         String confirmpass = etRegisterConfirmPass.getText().toString().trim();
 
-        if(name.isEmpty()) {
+        if (name.isEmpty()) {
             progressBarRegister.setVisibility(View.INVISIBLE);
             btnRegister.setVisibility(View.VISIBLE);
             etRegisterName.setError("name is required");
@@ -90,7 +90,7 @@ public class Register extends AppCompatActivity {
             return;
 
         }
-        if(email.isEmpty()) {
+        if (email.isEmpty()) {
             progressBarRegister.setVisibility(View.INVISIBLE);
             btnRegister.setVisibility(View.VISIBLE);
             etRegisterEmail.setError("email is required");
@@ -125,46 +125,76 @@ public class Register extends AppCompatActivity {
             etRegisterPass.setError("password is required");
             etRegisterPass.requestFocus();
         } else if (pass.equals(confirmpass)) {
-            mAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        User user = new User(name,email,phone);
+                        User user = new User(name, email, phone);
 
                         FirebaseDatabase.getInstance().getReference("Users")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .child("User Information")
                                 .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(Register.this,"User has been registered successfully", Toast.LENGTH_SHORT).show();
-                                    PhoneAuthOptions options =
-                                            PhoneAuthOptions.newBuilder(mAuth)
-                                                    .setPhoneNumber("+63" + phone)
-                                                    .setTimeout(60l, TimeUnit.SECONDS)
-                                                    .setActivity(Register.this)
-                                                    .setCallbacks(mCallbacks)
-                                                    .build();
-                                    PhoneAuthProvider.verifyPhoneNumber(options);
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            //Add Highest Score Database
+                                            FirebaseDatabase.getInstance().getReference("Users")
+                                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                    .child("Highest Score")
+                                                    .child("Beginner").setValue("0");
+                                            FirebaseDatabase.getInstance().getReference("Users")
+                                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                    .child("Highest Score")
+                                                    .child("Intermediate").setValue("0");
+                                            FirebaseDatabase.getInstance().getReference("Users")
+                                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                    .child("Highest Score")
+                                                    .child("Advanced").setValue("0");
 
-                                } else {
-                                    progressBarRegister.setVisibility(View.INVISIBLE);
-                                    btnRegister.setVisibility(View.VISIBLE);
-                                    Toast.makeText(Register.this,"Failed to register, please try again", Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
-                    }else {
+                                            //Add Achievements Database
+                                            FirebaseDatabase.getInstance().getReference("Users")
+                                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                    .child("Achievements")
+                                                    .child("Got 10 Score in Beginner!").setValue(false);
+                                            FirebaseDatabase.getInstance().getReference("Users")
+                                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                    .child("Achievements")
+                                                    .child("Got 10 Score in Intermediate!").setValue(false);
+                                            FirebaseDatabase.getInstance().getReference("Users")
+                                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                    .child("Achievements")
+                                                    .child("Got 10 Score in Advanced!").setValue(false);
+
+                                            //OTP
+                                            Toast.makeText(Register.this, "User has been registered successfully", Toast.LENGTH_SHORT).show();
+                                            PhoneAuthOptions options =
+                                                    PhoneAuthOptions.newBuilder(mAuth)
+                                                            .setPhoneNumber("+63" + phone)
+                                                            .setTimeout(60l, TimeUnit.SECONDS)
+                                                            .setActivity(Register.this)
+                                                            .setCallbacks(mCallbacks)
+                                                            .build();
+                                            PhoneAuthProvider.verifyPhoneNumber(options);
+
+                                        } else {
+                                            progressBarRegister.setVisibility(View.INVISIBLE);
+                                            btnRegister.setVisibility(View.VISIBLE);
+                                            Toast.makeText(Register.this, "Failed to register, please try again", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                });
+                    } else {
                         progressBarRegister.setVisibility(View.INVISIBLE);
                         btnRegister.setVisibility(View.VISIBLE);
-                        Toast.makeText(Register.this,"Email is already exist, please use other email", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Register.this, "Email is already exist, please use other email", Toast.LENGTH_LONG).show();
                     }
                 }
             });
         } else {
             progressBarRegister.setVisibility(View.INVISIBLE);
             btnRegister.setVisibility(View.VISIBLE);
-            Toast.makeText(Register.this,"Password Unmatched", Toast.LENGTH_LONG).show();
+            Toast.makeText(Register.this, "Password Unmatched", Toast.LENGTH_LONG).show();
         }
 
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -177,17 +207,17 @@ public class Register extends AppCompatActivity {
             public void onVerificationFailed(@NonNull FirebaseException e) {
                 progressBarRegister.setVisibility(View.INVISIBLE);
                 btnRegister.setVisibility(View.VISIBLE);
-                Toast.makeText(Register.this,e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                Toast.makeText(Register.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onCodeSent(@NonNull String verificationId,
                                    @NonNull PhoneAuthProvider.ForceResendingToken token) {
 
-                Toast.makeText(Register.this,"OTP is successfully send", Toast.LENGTH_LONG).show();
+                Toast.makeText(Register.this, "OTP is successfully send", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Register.this, OTP_Verification.class);
                 intent.putExtra("phone", phone);
-                intent.putExtra("verificationId",verificationId);
+                intent.putExtra("verificationId", verificationId);
                 startActivity(intent);
                 finish();
             }

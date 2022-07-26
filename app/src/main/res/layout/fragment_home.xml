@@ -19,7 +19,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/textViewStats"
@@ -39,7 +39,7 @@
                 android:id="@+id/textViewStats2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="25dp"
                 android:text="Learning Progress"
                 android:textColor="#000000"
                 android:textSize="20sp"
@@ -47,12 +47,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.054"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+                app:layout_constraintTop_toBottomOf="@+id/BeginnerScrollView" />
 
             <HorizontalScrollView
-                android:id="@+id/horizontalScrollView"
+                android:id="@+id/BeginnerScrollView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
                 android:background="#A34D4D"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -140,13 +141,16 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter1"
-                            android:layout_width="20dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="15dp"
+                            android:layout_marginEnd="5dp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:textSize="10sp"
@@ -167,6 +171,8 @@
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="10dp"
                             android:layout_height="130dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
                             android:progress="50"
                             android:progressDrawable="@drawable/progbary"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -178,15 +184,18 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter2"
-                            android:layout_width="20dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="15dp"
+                            android:layout_marginEnd="5dp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:textSize="10sp"
@@ -220,13 +229,16 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter3"
-                            android:layout_width="20dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="15dp"
+                            android:layout_marginEnd="5dp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:textSize="10sp"
@@ -260,13 +272,16 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter4"
-                            android:layout_width="20dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="15dp"
+                            android:layout_marginEnd="5dp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:textSize="10sp"
@@ -300,13 +315,16 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter5"
-                            android:layout_width="20dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="15dp"
+                            android:layout_marginEnd="5dp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:textSize="10sp"
@@ -340,13 +358,16 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter6"
-                            android:layout_width="20dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="15dp"
+                            android:layout_marginEnd="5dp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:textSize="10sp"
@@ -380,13 +401,16 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter7"
-                            android:layout_width="20dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="15dp"
+                            android:layout_marginEnd="5dp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:textSize="10sp"
@@ -420,13 +444,16 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter8"
-                            android:layout_width="20dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="15dp"
+                            android:layout_marginEnd="5dp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:textSize="10sp"
@@ -460,13 +487,16 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter9"
-                            android:layout_width="20dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="15dp"
+                            android:layout_marginEnd="5dp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:textSize="10sp"
@@ -500,13 +530,16 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter10"
-                            android:layout_width="20dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="15dp"
+                            android:layout_marginEnd="5dp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:textSize="10sp"
@@ -540,13 +573,16 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter11"
-                            android:layout_width="20dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="15dp"
+                            android:layout_marginEnd="5dp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:textSize="10sp"
@@ -580,13 +616,16 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter12"
-                            android:layout_width="20dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="15dp"
+                            android:layout_marginEnd="5dp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:textSize="10sp"
@@ -620,13 +659,16 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter13"
-                            android:layout_width="20dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:layout_marginTop="15dp"
+                            android:layout_marginEnd="5dp"
                             android:gravity="center"
                             android:textColor="#000000"
                             android:textSize="10sp"
@@ -660,7 +702,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter14"
@@ -700,7 +743,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter15"
@@ -740,7 +784,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter16"
@@ -780,7 +825,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter17"
@@ -820,7 +866,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter18"
@@ -860,7 +907,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter19"
@@ -900,7 +948,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter20"
@@ -940,7 +989,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter21"
@@ -980,7 +1030,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter22"
@@ -1020,7 +1071,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter23"
@@ -1060,7 +1112,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter24"
@@ -1100,7 +1153,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter25"
@@ -1140,7 +1194,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter26"
@@ -1180,7 +1235,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter27"
@@ -1220,7 +1276,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter28"
@@ -1260,7 +1317,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter29"
@@ -1300,7 +1358,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter30"
@@ -1340,7 +1399,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter31"
@@ -1380,7 +1440,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter32"
@@ -1420,7 +1481,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter33"
@@ -1460,7 +1522,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter34"
@@ -1500,7 +1563,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter35"
@@ -1540,7 +1604,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter36"
@@ -1580,7 +1645,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
+                        android:background="@android:color/transparent"
+                        tools:visibility="gone">
 
                         <TextView
                             android:id="@+id/textLetter37"
@@ -1620,13 +1686,30 @@
                 </LinearLayout>
             </HorizontalScrollView>
 
+            <TextView
+                android:id="@+id/learnProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="35dp"
+                android:text="0/37"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/learningProg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
             <ProgressBar
                 android:id="@+id/learningProg"
                 style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
+                android:layout_width="135dp"
+                android:layout_height="125dp"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="120dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/circle_shape"
                 android:indeterminate="false"
                 android:max="100"
@@ -1635,7 +1718,26 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewStats2" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewStats2"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <Switch
+                android:id="@+id/modeSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:minHeight="48dp"
+                android:showText="false"
+                android:text="Letters"
+                android:textAllCaps="false"
+                android:textOff="Letters"
+                android:textOn="Words"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.92"
+                app:layout_constraintStart_toEndOf="@+id/textViewStats"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

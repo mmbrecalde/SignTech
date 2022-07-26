@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
+import android.app.Dialog;
 import android.app.assist.AssistStructure;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -37,13 +38,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
 public class Quiz extends AppCompatActivity {
 
+    //Mode
+    public static String mode = "Beginner";
+
     //Questions Variables
-    int[] images = new int[]{R.drawable.a, R.drawable.b, R.drawable.c, R.drawable.d,
+    //Beginner Questions
+    int[] BegImages = new int[]{R.drawable.a, R.drawable.b, R.drawable.c, R.drawable.d,
             R.drawable.e, R.drawable.f, R.drawable.g, R.drawable.h, R.drawable.i,
             R.drawable.j, R.drawable.k, R.drawable.l, R.drawable.m, R.drawable.n,
             R.drawable.o, R.drawable.p, R.drawable.q, R.drawable.r, R.drawable.s,
@@ -52,7 +58,7 @@ public class Quiz extends AppCompatActivity {
             R.drawable.four, R.drawable.five, R.drawable.six, R.drawable.seven, R.drawable.eight,
             R.drawable.nine, R.drawable.ten, R.drawable.and,};
 
-    String[] questions = {"a", "b", "c", "d", "e",
+    String[] BegQuestions = {"a", "b", "c", "d", "e",
             "f", "g", "h", "i", "j",
             "k", "l", "m", "n", "o",
             "p", "q", "r", "s", "t",
@@ -60,6 +66,18 @@ public class Quiz extends AppCompatActivity {
             "z", "1", "2", "3", "4",
             "5", "6", "7", "8", "9",
             "10", "and"};
+    //Intermediate Questions
+    int[] InterImages = new int[]{
+            R.drawable.baby, R.drawable.bathroom, R.drawable.deaf, R.drawable.father, R.drawable.friend,
+            R.drawable.hello, R.drawable.ily, R.drawable.love, R.drawable.mother, R.drawable.no,
+            R.drawable.please, R.drawable.school, R.drawable.thanks, R.drawable.yes,
+    };
+
+    String[] InterQuestions = {
+            "baby", "bathroom", "deaf", "father", "friend",
+            "hello", "ily", "love", "mother", "no",
+            "please", "school", "thanks", "yes",
+    };
 
     static String answer;
     int arrayNo;
@@ -67,7 +85,7 @@ public class Quiz extends AppCompatActivity {
     int currentScore = 0;
     Button next, endQ;
     EditText userAnswer;
-    TextView userScore, userLives;
+    TextView userScore, userLives, modeTV;
     ImageView question, settings, exit;
     ScrollView settingsContainer;
 
@@ -126,6 +144,9 @@ public class Quiz extends AppCompatActivity {
         muteSoundEf = findViewById(R.id.muteSound);
         exit = findViewById(R.id.backBtn);
 
+        //Difficulty
+        modeTV = findViewById(R.id.modeTV);
+        modeTV.setText("Difficulty: " + mode.toUpperCase(Locale.ROOT));
         //Animations
         next.animate().alpha(0f).setDuration(0);
         endQ.animate().alpha(0f).setDuration(0);
@@ -284,10 +305,17 @@ public class Quiz extends AppCompatActivity {
                 openedK = userAnswer.hasFocus();
 
                 hideKeyboard();
+
+                if (String.valueOf(userAnswer.getText()).equalsIgnoreCase("i love you")) {
+                    userAnswer.setText("ily");
+                } else if (String.valueOf(userAnswer.getText()).equalsIgnoreCase("thank you") || String.valueOf(userAnswer.getText()).equalsIgnoreCase("thank")) {
+                    userAnswer.setText("thanks");
+                }
+
                 if (!"".equals(String.valueOf(userAnswer.getText()))) {
                     if (answer.equalsIgnoreCase(String.valueOf(userAnswer.getText()))) {
                         //Check if the answer is exist in the database
-                        mDatabase.child(userID).child("Questions").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                        mDatabase.child(userID).child("Questions").child(mode).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                             @Override
                             public void onComplete(@NonNull Task<DataSnapshot> task) {
                                 if (!task.isSuccessful()) {
@@ -301,7 +329,7 @@ public class Quiz extends AppCompatActivity {
                                                 if (childKey.equalsIgnoreCase("correct")) {
                                                     letterToAdd = String.valueOf(childSnapshot.getValue());
                                                     convertLetter = Integer.parseInt(letterToAdd) + 1;
-                                                    mDatabase.child(userID).child("Questions").child(String.valueOf(userAnswer.getText())).child("correct").setValue(String.valueOf(convertLetter));
+                                                    mDatabase.child(userID).child("Questions").child(mode).child(String.valueOf(userAnswer.getText())).child("correct").setValue(String.valueOf(convertLetter));
 
                                                     isAvailable = true;
                                                 }
@@ -310,13 +338,13 @@ public class Quiz extends AppCompatActivity {
                                     }
                                 }
                                 if (!isAvailable) {
-                                    String key = String.valueOf(userAnswer.getText());
+                                    String key = String.valueOf(answer);
                                     Map<String, Object> values = new HashMap<>();
                                     values.put("correct", "wrong");
-                                    mDatabase.child(userID).child("Questions").child(key).push();
-                                    mDatabase.child(userID).child("Questions").child(key).setValue(values);
-                                    mDatabase.child(userID).child("Questions").child(key).child("correct").setValue("1");
-                                    mDatabase.child(userID).child("Questions").child(key).child("wrong").setValue("0");
+                                    mDatabase.child(userID).child("Questions").child(mode).child(key).push();
+                                    mDatabase.child(userID).child("Questions").child(mode).child(key).setValue(values);
+                                    mDatabase.child(userID).child("Questions").child(mode).child(key).child("correct").setValue("1");
+                                    mDatabase.child(userID).child("Questions").child(mode).child(key).child("wrong").setValue("0");
                                 }
                             }
                         });
@@ -330,7 +358,7 @@ public class Quiz extends AppCompatActivity {
                         }
                         delayFunction("correct");
                     } else {
-                        mDatabase.child(userID).child("Questions").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                        mDatabase.child(userID).child("Questions").child(mode).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                             @Override
                             public void onComplete(@NonNull Task<DataSnapshot> task) {
                                 if (!task.isSuccessful()) {
@@ -344,7 +372,7 @@ public class Quiz extends AppCompatActivity {
                                                 if (childKey.equalsIgnoreCase("wrong")) {
                                                     letterToAdd = String.valueOf(childSnapshot.getValue());
                                                     convertLetter = Integer.parseInt(letterToAdd) + 1;
-                                                    mDatabase.child(userID).child("Questions").child(answer).child("wrong").setValue(String.valueOf(convertLetter));
+                                                    mDatabase.child(userID).child("Questions").child(mode).child(answer).child("wrong").setValue(String.valueOf(convertLetter));
                                                     isAvailable = true;
                                                 }
                                             }
@@ -355,10 +383,10 @@ public class Quiz extends AppCompatActivity {
                                     String key = String.valueOf(answer);
                                     Map<String, Object> values = new HashMap<>();
                                     values.put("correct", "wrong");
-                                    mDatabase.child(userID).child("Questions").child(key).push();
-                                    mDatabase.child(userID).child("Questions").child(key).setValue(values);
-                                    mDatabase.child(userID).child("Questions").child(key).child("correct").setValue("0");
-                                    mDatabase.child(userID).child("Questions").child(key).child("wrong").setValue("1");
+                                    mDatabase.child(userID).child("Questions").child(mode).child(key).push();
+                                    mDatabase.child(userID).child("Questions").child(mode).child(key).setValue(values);
+                                    mDatabase.child(userID).child("Questions").child(mode).child(key).child("correct").setValue("0");
+                                    mDatabase.child(userID).child("Questions").child(mode).child(key).child("wrong").setValue("1");
                                 }
                             }
                         });
@@ -408,7 +436,7 @@ public class Quiz extends AppCompatActivity {
         endQ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getScoreAndTime();
+                showDialog();
 
                 start.animate().alpha(1f).setDuration(1500);
                 endQ.animate().alpha(0f).setDuration(1500);
@@ -421,9 +449,85 @@ public class Quiz extends AppCompatActivity {
                 openedK = userAnswer.hasFocus();
                 hideKeyboard();
                 ResetEverything();
-
             }
         });
+    }
+
+    //Dialog
+    private void checkAnswerDialog(String getStatus) {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.check_answer_dialog);
+
+        ImageView imageCheck = dialog.findViewById(R.id.dialogImage);
+        TextView status = dialog.findViewById(R.id.dialogDesc1);
+        TextView cAnswer = dialog.findViewById(R.id.dialogDesc2);
+
+        if (getStatus.equalsIgnoreCase("correct")) {
+            imageCheck.setImageDrawable(getResources().getDrawable(R.drawable.correct));
+            status.setText("You are Correct!");
+            cAnswer.setText("");
+        } else {
+            imageCheck.setImageDrawable(getResources().getDrawable(R.drawable.incorrect));
+            status.setText("You are Incorrect!");
+            cAnswer.setText("The answer is: " + answer);
+        }
+
+        dialog.show();
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                dialog.hide();
+                if (currentLives == 0) {
+                    showDialog();
+
+                    start.animate().alpha(1f).setDuration(1500);
+                    endQ.animate().alpha(0f).setDuration(1500);
+                    next.animate().alpha(0f).setDuration(1500);
+
+                    start.startAnimation(rotateAnimBtns);
+                    next.startAnimation(rotateAnimBtns);
+                    endQ.startAnimation(rotateAnimBtns);
+
+                    ResetEverything();
+                }
+            }
+        }, 1300);
+    }
+
+    private void showDialog() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.quiz_dialog);
+
+        TextView title = dialog.findViewById(R.id.dialogTitle);
+        TextView score = dialog.findViewById(R.id.dialogDesc1);
+        TextView time = dialog.findViewById(R.id.dialogDesc2);
+
+        Button btnContinue = dialog.findViewById(R.id.btnContinue);
+        Button btnHome = dialog.findViewById(R.id.btnHome);
+
+        title.setText("GAME STATS");
+        score.setText("Your Score: " + userScore.getText());
+        time.setText("Play Time: " + timer.getText());
+
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainHome.activityVisible = true;
+                Intent home = new Intent(Quiz.this, MainHome.class);
+                startActivity(home);
+                finish();
+            }
+        });
+
+        btnContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.hide();
+            }
+        });
+
+        dialog.show();
     }
 
     //Detect if Screen is Active/Inactive
@@ -472,7 +576,7 @@ public class Quiz extends AppCompatActivity {
                     currentLives = Integer.parseInt(userLives.getText().toString()) - 1;
                     userLives.setText(String.valueOf(currentLives));
                 }
-
+                checkAnswerDialog(checkAnswer);
                 changeQuestion();
             }
         }, 500);
@@ -547,33 +651,20 @@ public class Quiz extends AppCompatActivity {
     };
 
     //Questions Function
-    public void getScoreAndTime() {
-        Toast.makeText(this, "GAME ENDED!", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "Your Score: " + userScore.getText() + " | Playtime:" + timer.getText(), Toast.LENGTH_LONG).show();
-    }
-
     public void changeQuestion() {
-        arrayNo = new Random().nextInt(questions.length);
-        question.setImageDrawable(getResources().getDrawable(images[arrayNo]));
-        answer = questions[arrayNo];
-
-        if (currentLives == 0) {
-            getScoreAndTime();
-
-            start.animate().alpha(1f).setDuration(1500);
-            endQ.animate().alpha(0f).setDuration(1500);
-            next.animate().alpha(0f).setDuration(1500);
-
-            start.startAnimation(rotateAnimBtns);
-            next.startAnimation(rotateAnimBtns);
-            endQ.startAnimation(rotateAnimBtns);
-
-            ResetEverything();
+        if (mode.equalsIgnoreCase("Beginner")) {
+            arrayNo = new Random().nextInt(BegQuestions.length);
+            question.setImageDrawable(getResources().getDrawable(BegImages[arrayNo]));
+            answer = BegQuestions[arrayNo];
+        } else if (mode.equalsIgnoreCase("Intermediate")) {
+            arrayNo = new Random().nextInt(InterQuestions.length);
+            question.setImageDrawable(getResources().getDrawable(InterImages[arrayNo]));
+            answer = InterQuestions[arrayNo];
         }
     }
 
     @Override
-    public void onBackPressed () {
+    public void onBackPressed() {
         MainHome.activityVisible = true;
         Intent home = new Intent(Quiz.this, MainHome.class);
         startActivity(home);

@@ -49,7 +49,6 @@ public class Home extends AppCompatActivity {
                 user = FirebaseAuth.getInstance().getCurrentUser();
                 User userWelcome = snapshot.getValue(User.class);
 
-
                 if ((userWelcome != null) &&(user != null)) {
                     String name = userWelcome.name;
 

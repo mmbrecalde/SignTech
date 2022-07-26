@@ -66,7 +66,7 @@ public class ProfileFragment extends Fragment {
         reference = FirebaseDatabase.getInstance().getReference("Users");
         userID = user.getUid();
 
-        reference.child(userID).addValueEventListener(new ValueEventListener() {
+        reference.child(userID).child("User Information").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userWelcome = snapshot.getValue(User.class);
