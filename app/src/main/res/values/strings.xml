@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SignTech</string>
+    <string name="camera">Camera</string>
 </resources>
