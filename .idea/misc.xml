@@ -3,15 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Wenllie/Desktop/Kay Bonnel to/SignTech-SignTech/app/src/main/res/layout/activity_profile.xml" value="0.1" />
-        <entry key="..\:/Users/Wenllie/Desktop/Kay Bonnel to/SignTech-SignTech/app/src/main/res/layout/activity_register.xml" value="0.1" />
-        <entry key="..\:/Users/Wenllie/Desktop/Kay Bonnel to/SignTech-SignTech/app/src/main/res/layout/activity_sign.xml" value="0.18999073215940684" />
-        <entry key="..\:/Users/Wenllie/Desktop/Kay Bonnel to/SignTech-SignTech/app/src/main/res/layout/fragment_learn.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/Wenllie/Desktop/Kay Bonnel to/SignTech-SignTech/app/src/main/res/layout/fragment_sign.xml" value="0.1" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/drawable/custom_input.xml" value="0.2985" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/drawable/dialog_bg.xml" value="0.3465" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/activity_main_home.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/activity_profile.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/activity_quiz.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/activity_register.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/app_bar_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/check_answer_dialog.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/content_main.xml" value="0.15433946130825138" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/custom_dialog.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/dialog_bg.xml" value="0.365625" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/difficulty_dialog.xml" value="0.30012825994014536" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/fragment_achievement.xml" value="0.25" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/fragment_home.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/fragment_learn.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/fragment_sign.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/nav_header_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/layout/quiz_dialog.xml" value="0.2932910244786945" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/menu/activity_main_drawer.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/james/AndroidStudioProjects/SignTech-SignTech/app/src/main/res/menu/main.xml" value="0.18802083333333333" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

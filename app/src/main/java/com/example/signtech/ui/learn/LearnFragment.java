@@ -20,6 +20,9 @@ public class LearnFragment extends Fragment {
         binding = FragmentLearnBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        //Dito banda mag code
+
+
         return root;
     }
 

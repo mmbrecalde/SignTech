@@ -89,6 +89,10 @@ public class Quiz extends AppCompatActivity {
     ImageView question, settings, exit;
     ScrollView settingsContainer;
 
+    Boolean stopDetectingBeg = false;
+    Boolean stopDetectingInter = false;
+    Boolean stopDetectingAdv = false;
+
     //Anti crash (Keyboard thing)
     boolean openedK = false;
 
@@ -117,6 +121,9 @@ public class Quiz extends AppCompatActivity {
     RotateAnimation rotateAnimSettings;
     RotateAnimation rotateAnimBtns;
 
+    String[] awardsName = new String[]{
+            "Got 10 Score in Beginner!", "Got 10 Score in Intermediate!", "Got 10 Score in Advanced!",
+    };
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -463,9 +470,20 @@ public class Quiz extends AppCompatActivity {
         TextView cAnswer = dialog.findViewById(R.id.dialogDesc2);
 
         if (getStatus.equalsIgnoreCase("correct")) {
+            if (currentScore == 10 && !stopDetectingBeg && mode.equalsIgnoreCase("Beginner")) {
+                mDatabase.child(userID).child("Achievements").child(awardsName[0]).setValue(true);
+                cAnswer.setText("YOU GOT AN ACHIEVEMENT! Check your achievements");
+                stopDetectingInter = true;
+            } else if (currentScore == 10 && !stopDetectingInter && mode.equalsIgnoreCase("Intermediate")) {
+                mDatabase.child(userID).child("Achievements").child(awardsName[1]).setValue(true);
+                stopDetectingInter = true;
+                cAnswer.setText("YOU GOT AN ACHIEVEMENT! Check your achievements");
+            } else {
+                cAnswer.setText("");
+            }
             imageCheck.setImageDrawable(getResources().getDrawable(R.drawable.correct));
             status.setText("You are Correct!");
-            cAnswer.setText("");
+
         } else {
             imageCheck.setImageDrawable(getResources().getDrawable(R.drawable.incorrect));
             status.setText("You are Incorrect!");

@@ -28,4 +28,10 @@
         android:name="com.example.signtech.ui.profile.ProfileFragment"
         android:label="@string/menu_profile"
         tools:layout="@layout/activity_profile"/>
+
+    <fragment
+        android:id="@+id/nav_achievement"
+        android:name="com.example.signtech.ui.achievement.AchievementFragment"
+        android:label="@string/menu_achievement"
+        tools:layout="@layout/fragment_achievement"/>
 </navigation>

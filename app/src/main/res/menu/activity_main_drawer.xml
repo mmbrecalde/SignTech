@@ -20,5 +20,10 @@
             android:id="@+id/nav_profile"
             android:icon="@mipmap/profile"
             android:title="@string/menu_profile" />
+
+        <item
+            android:id="@+id/nav_achievement"
+            android:icon="@mipmap/profile"
+            android:title="@string/menu_achievement" />
     </group>
 </menu>

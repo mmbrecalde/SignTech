@@ -12,7 +12,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/signtech"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -24,7 +24,7 @@
         <activity android:name=".ForgotPassword" />
         <activity android:name=".MainHome" />
         <activity android:name=".Quiz" />
-        <activity android:name=".ui.sign.SignActivity"/>
+        <activity android:name=".ui.sign.SignActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
